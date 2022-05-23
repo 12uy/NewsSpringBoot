@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: BeVietNam;
+    src: url(/Content/Font/BeVietnamPro-Regular.ttf);
+}
+body {
+    font-family: BeVietNam;
+    box-sizing: border-box;
+    color: #3f3f3f;
+}
+#footer h5{
+    color: #ffffff;
+}
+ul{
+    list-style: none;
+}
+.menu-bar li a{
+    color: #ffffff;
+}
+.menu-bar li:hover a{
+    color: red;
+}
+.post-item .tit{
+    overflow: hidden;
+}
+
+.post-item a:hover p{
+    color: #007aff;
+}
+.post-item a:hover h1{
+    color: #007aff;
+}
+.post-item a:hover h3{
+    color: #007aff;
+}
+
+.post-item a{
+    overflow: hidden;
+}
+.post-item a img{
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.post-item a:hover img{
+    transform: scale(1.1);
+}
