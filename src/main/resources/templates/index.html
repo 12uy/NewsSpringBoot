@@ -12,80 +12,60 @@
 <th:block th:include="/_header"></th:block>
 <main class="container">
 
-    <!--    <div class="p-4 p-md-5 mb-4 text-black rounded bg-white">-->
+        <div class="p-4 p-md-5 mb-4 text-black rounded bg-white">
 
-    <!--        <div class="row post-item">-->
+            <div class="row post-item">
 
-    <!--            <div class="tit col-md-6 px-0">-->
-    <!--                <a href="#" class="text-black fw-normal text-decoration-none">-->
-    <!--                    <h1 class="display-4 fw-bolder">Cầu thủ 36 tuổi gốc Đức của U23 Philippines tuyên bố hạ U23 Việt Nam</h1>-->
-    <!--                </a>-->
-    <!--                <a href="#" class="text-black fw-normal"><p  class="lead mb-0">Sau chiến thắng 4-0 trước U23 Đông Timor, tiền vệ Stephan Schrock của U23 Philippines tỏ rõ quyết tâm muốn đánh bại U23 Việt Nam ở trận đấu tới trên sân Việt Trì....</p></a>-->
-    <!--            </div>-->
-    <!--            <div class="tit col-md-6">-->
-    <!--                <a href="#"><img class="d-block w-100" src="https://icdn.dantri.com.vn/zoom/552_368/2022/05/13/anh-tim-mua-vu-khi-cu-tu-thoi-xo-viet-de-vien-tro-cho-ukraine-crop-1652398918632.jpeg" alt=""></a>-->
-    <!--            </div>-->
-
-
-    <!--        </div>-->
+                <div class="tit col-md-6 px-0">
+                    <a th:href="@{|/news?id=${headNews.id}|}" class="text-black fw-normal text-decoration-none">
+                        <h1 class="display-4 fw-bolder" th:text="${headNews.title}"></h1>
+                    </a>
+                    <a th:href="@{|/news?id=${headNews.id}|}" class="text-black fw-normal"><p  class="lead mb-0" th:text="${headNews.shortdescription}"></p></a>
+                </div>
+                <div class="tit col-md-6">
+                    <a th:href="@{|/news?id=${headNews.id}|}"><img class="d-block w-100" src="https://icdn.dantri.com.vn/zoom/552_368/2022/05/13/anh-tim-mua-vu-khi-cu-tu-thoi-xo-viet-de-vien-tro-cho-ukraine-crop-1652398918632.jpeg" alt=""></a>
+                </div>
 
 
-    <!--    </div>-->
-
-    <!--    <div class="row mb-2">-->
-    <!--        <div class="col-md-6">-->
-
-    <!--            <div class="post-item row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">-->
-    <!--                <div class="col p-4 d-flex flex-column position-static">-->
-    <!--                    <a href="#" class="text-black fw-normal text-decoration-none">-->
-    <!--                        <h3 class="mb-0">Trung ương thảo luận đề án xây dựng tổ chức cơ sở Đảng</h3>-->
-
-    <!--                        <p class="card-text mb-auto">Trong ngày làm việc thứ tư, Trung ương làm việc tại tổ thảo luận Đề án xây dựng tổ chức cơ sở Đảng và đảng viên...</p>-->
-    <!--                    </a>-->
-    <!--                </div>-->
-    <!--                <div class="col-auto d-none d-lg-block">-->
-    <!--                    <a href=""><img src="/Content/images/HOME/demo2.webp" class="rounded float-start bd-placeholder-img" width="200" height="250" alt="">  </a>-->
-    <!--                </div>-->
-    <!--            </div>-->
+            </div>
 
 
-    <!--        </div>-->
-    <!--        <div class="col-md-6">-->
-    <!--            <div class="post-item">-->
-    <!--                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">-->
-    <!--                    <div class="col p-4 d-flex flex-column position-static">-->
-    <!--                        <a href="#" class=" text-black fw-normal text-decoration-none">-->
-    <!--                            <h3 class="mb-0">Nga tập kích đường không dữ dội, Ukraine thiệt hại nặng nề</h3>-->
-    <!--                            <div class="mb-1 text"> </div>-->
-    <!--                            <p class="card-text mb-auto">Quân đội Nga ra thông báo về các cuộc tập kích đường không nhằm vào lực lượng Ukraine...</p>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                    <div class="col-auto d-none d-lg-block">-->
-    <!--                        <a href=""><img src="/Content/images/HOME/demo3.webp" class="rounded float-end bd-placeholder-img" width="200" height="250" alt=""> </a>-->
+        </div>
 
-    <!--                    </div>-->
-    <!--                </div>-->
+        <div class="row mb-2">
+            <div class="col-md-6" th:each="news : ${bodyList}">
 
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+                <div class="post-item row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <a th:href="@{|/news?id=${news.id}|}" class="text-black fw-normal text-decoration-none">
+                            <h3 class="mb-0" th:text="${news.title}"></h3>
+
+                            <p class="card-text mb-auto" th:text="${news.shortdescription}"></p>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <a th:href="@{|/news?id=${news.id}|}"><img src="/Content/images/HOME/demo2.webp" class="rounded float-start bd-placeholder-img" width="200" height="250" alt="">  </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!--    -->
     <div class="row g-5">
         <div class="col-md-8">
-                <article class="blog-post" th:each="news: ${newsList}">
+                <article class="blog-post" th:each="news: ${footList}">
                     <div class="post-item col-md-12">
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <div class="col-auto d-none d-lg-block">
-                                <a href=""><img src="/Content/images/HOME/demo3.webp"
+                                <a th:href="@{|/news?id=${news.id}|}"><img src="/Content/images/HOME/demo3.webp"
                                                 class="rounded float-end bd-placeholder-img" alt=""> </a>
 
                             </div>
                             <div class="col p-4 d-flex flex-column position-static">
-                                <a href="#" class="b text-black fw-normal text-decoration-none">
+                                <a th:href="@{|/news?id=${news.id}|}" class="b text-black fw-normal text-decoration-none">
                                     <h3 class="mb-0" th:text="${news.title}"></h3>
-                                    <div class="mb-1 text" th:text=" ${news.shortdescryption}"></div>
-                                    <p class="card-text mb-auto" th:text="${news.content}"></p>
+                                    <div class="mb-1 text" ></div>
+                                    <p class="card-text mb-auto" th:text="${news.shortdescription}"></p>
                                 </a>
                             </div>
                         </div>
@@ -111,6 +91,7 @@
 
         <!--        </div>-->
     </div>
+
 
     <!--    phân trang-->
 

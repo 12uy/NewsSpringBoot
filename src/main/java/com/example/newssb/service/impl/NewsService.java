@@ -78,5 +78,27 @@ public class NewsService implements INewsService {
         }
     }
 
+    @Override
+    public List<NewsDTO> findByCategoryId(Long id) {
+        List<NewsDTO> result = new ArrayList<>();
+        List<NewsEntity> entities = newsRepository.findNewsEntitiesByCategory_Id(id);
+        for (NewsEntity item: entities) {
+            NewsDTO newsDTO = newsConverter.toDTO(item);
+            result.add(newsDTO);
+        }
+        return result;
+    }
+
+//    @Override
+//    public List<NewsDTO> findNewsEntitiesRandom() {
+//        List<NewsDTO> result = new ArrayList<>();
+//        List<NewsEntity> entities = newsRepository.findNewsEntitiesRandom();
+//        for (NewsEntity item: entities) {
+//            NewsDTO newsDTO = newsConverter.toDTO(item);
+//            result.add(newsDTO);
+//        }
+//        return result;
+//    }
+
 
 }

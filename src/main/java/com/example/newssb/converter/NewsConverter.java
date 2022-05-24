@@ -12,7 +12,7 @@ public class NewsConverter {
         newsDTO.setTitle(newsEntity.getTitle());
         newsDTO.setContent(newsEntity.getContent());
         newsDTO.setCategoryCode(newsEntity.getCategory().getCode());
-        newsDTO.setShortdescription(newsEntity.getShotDescription());
+        newsDTO.setShortdescription(newsEntity.getShortDescription());
         newsDTO.setLinkTTS(newsEntity.getLinkTTS());
         return newsDTO;
     }
@@ -23,7 +23,7 @@ public class NewsConverter {
         newsEntity.setTitle(newsDTO.getTitle());
         newsEntity.setContent(newsDTO.getContent());
 //        newsEntity.setCategory(newsDTO.getCategory());
-        newsEntity.setShotDescription(newsDTO.getShortdescription());
+        newsEntity.setShortDescription(newsDTO.getShortdescription());
         newsEntity.setLinkTTS(newsDTO.getLinkTTS());
         return newsEntity;
     }
@@ -32,7 +32,7 @@ public class NewsConverter {
         newsEntity.setTitle(newsDTO.getTitle());
         newsEntity.setContent(newsDTO.getContent());
 //        newsEntity.setCategory(newsDTO.getCategory());
-        newsEntity.setShotDescription(newsDTO.getShortdescription());
+        newsEntity.setShortDescription(newsDTO.getShortdescription());
         newsEntity.setLinkTTS(newsDTO.getLinkTTS());
         return newsEntity;
     }

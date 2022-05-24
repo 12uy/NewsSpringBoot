@@ -17,8 +17,8 @@ public class NewsEntity {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "shotdescription")
-    private String shotDescription;
+    @Column(name = "shortdescription")
+    private String shortDescription;
 
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;

@@ -12,4 +12,9 @@ public interface INewsService {
     NewsDTO save(NewsDTO dto);
     void delete(Long[] ids);
 
+    List<NewsDTO> findByCategoryId(Long id);
+
+//    List<NewsDTO> findNewsEntitiesRandom();
+
+
 }

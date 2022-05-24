@@ -1,5 +1,7 @@
 package com.example.newssb.service.impl;
 
+import com.example.newssb.converter.CategoryConverter;
+import com.example.newssb.dto.CategoryDTO;
 import com.example.newssb.entity.CategoryEntity;
 import com.example.newssb.repository.CategoryRepository;
 import com.example.newssb.service.ICategoryService;
@@ -15,6 +17,9 @@ public class CategoryService implements ICategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private CategoryConverter categoryConverter;
+
     @Override
     public Map<String, String> findAll() {
         Map<String, String> result = new HashMap<>();
@@ -22,6 +27,14 @@ public class CategoryService implements ICategoryService {
         for (CategoryEntity item: entities) {
             result.put(item.getCode(), item.getName());
         }
+        return result;
+    }
+
+    @Override
+    public CategoryDTO findById(Long id) {
+        CategoryDTO result = new CategoryDTO();
+        CategoryEntity entity = categoryRepository.findById(id).get();
+        result = categoryConverter.toDto(entity);
         return result;
     }
 }
