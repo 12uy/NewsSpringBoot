@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -48,7 +48,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDTO getUserByUserName(String userName) {
-        return userRepository.findOneByUserNameAndStatus(userName,1);
+        return userConverter.toDTO(userRepository.findOneByUserName(userName).get());
     }
 
 

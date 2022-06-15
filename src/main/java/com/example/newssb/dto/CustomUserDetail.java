@@ -3,13 +3,14 @@ package com.example.newssb.dto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 public class CustomUserDetail extends UserDTO implements UserDetails {
     private static final long serialVersionUID = 1L;
+
 
     public CustomUserDetail(UserDTO userDTO) {
         super(userDTO);
@@ -18,7 +19,7 @@ public class CustomUserDetail extends UserDTO implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorityList = new ArrayList<>();
-        super.getReleIds().forEach(role -> {
+        super.getRoleIds().forEach(role -> {
             authorityList.add(new SimpleGrantedAuthority(role.getName()));
         });
         return authorityList;
@@ -33,6 +34,7 @@ public class CustomUserDetail extends UserDTO implements UserDetails {
     public String getUsername() {
         return super.getUserName();
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

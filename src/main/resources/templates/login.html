@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in</title>
+    <link rel="stylesheet" th:href="@{Style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{bootstrap/css/bootstrap.min.css}">
+    <style>
+
+        .form-signin{
+            width: 300px;
+            display: block;
+            margin: 300px auto;
+
+        }
+
+        .modal-header{
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="form-signin">
+    <form th:action="@{/j_spring_security_check}" method="post">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+            <!-- <h5 class="modal-title">Modal title</h5> -->
+            <h2 class="h3 mb-0 fw-bold">Please sign in</h2>
+            <a th:href="@{/home}"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+        </div>
+        <div th:if="${param.error}" class="alert alert-error text-danger">
+            Invalid username or password.
+        </div>
+        <div class="form-floating">
+            <label for="floatingInput">UserName</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+        </div>
+        <div class="form-floating">
+            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
+        <br>
+        <span >Don't have an account <a class="linkControl" href="./register.html"
+                                        th:href="@{/register}">Register here</a></span>
+        <br>
+        <a href="" th:href="@{/forgotpassword}">Forgot password ?</a>
+    </form>
+    <br>
+    <h3>OR</h3>
+    <a href="/oauth2/authorization/google" class="btn btn-primary">Sign-In with google </a>
+    <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    </form>
+</main>
+
+<script th:src="@{/popper/popper.min.js}"></script>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
