@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -50,8 +51,12 @@ public class HomeController {
     public String homePage(Model model,
                            @RequestParam(name = "page", defaultValue = "0") int page,
                            @RequestParam(name = "limit", defaultValue = "10") int limit) {
+        int max = 10;
+        int min = 0;
+        page = (int) Math.floor(Math.random()*(max-min+1)+min);
         PageRequest pageRequest = PageRequest.of(page, limit);
         List<NewsDTO> newsDTOList = newsService.findAll(pageRequest);
+        Collections.shuffle(newsDTOList);
         System.out.println(newsDTOList);
         NewsDTO head = newsDTOList.get(0);
         List<NewsDTO> body = newsDTOList.subList(1, 3);
@@ -68,6 +73,14 @@ public class HomeController {
         model.addAttribute("news", newsDTO);
         return "news";
     }
+
+//    @GetMapping("/summarization")
+//    public String tomTat(Model model, @RequestParam(name = "id") Long id) {
+//        NewsDTO newsDTO = newsService.findById(id);
+//        model.addAttribute("news", newsDTO);
+//        return "news";
+//    }
+
 
     @GetMapping("/category")
     public String categoryPage(Model model, @RequestParam(name = "id") Long id) {

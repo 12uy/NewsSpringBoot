@@ -9,8 +9,11 @@ public interface INewsService {
     List<NewsDTO> findAll(Pageable pageable);
     int getTotalItem();
     NewsDTO findById(Long id);
+
     NewsDTO save(NewsDTO dto);
     void delete(Long[] ids);
+
+
 
     List<NewsDTO> findByCategoryId(Long id);
 

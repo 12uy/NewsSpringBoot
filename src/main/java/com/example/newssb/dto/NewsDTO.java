@@ -11,4 +11,6 @@ public class NewsDTO {
     private Long categoryId;
     private String categoryCode;
     private String LinkTTS;
+    private String htmlPage;
+    private String tomTat;
 }

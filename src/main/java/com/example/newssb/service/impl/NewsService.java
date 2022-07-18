@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -52,6 +53,7 @@ public class NewsService implements INewsService {
         Optional<NewsEntity> entity = newsRepository.findById(id);
         return newsConverter.toDTO(entity.get());
     }
+
 
 
     @Override

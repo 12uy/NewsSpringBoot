@@ -14,6 +14,8 @@ public class NewsConverter {
         newsDTO.setCategoryCode(newsEntity.getCategory().getCode());
         newsDTO.setShortdescription(newsEntity.getShortDescription());
         newsDTO.setLinkTTS(newsEntity.getLinkTTS());
+        newsDTO.setHtmlPage(newsEntity.getHtmlPage());
+        newsDTO.setTomTat(newsEntity.getTomTat());
         return newsDTO;
     }
 
@@ -25,6 +27,7 @@ public class NewsConverter {
 //        newsEntity.setCategory(newsDTO.getCategory());
         newsEntity.setShortDescription(newsDTO.getShortdescription());
         newsEntity.setLinkTTS(newsDTO.getLinkTTS());
+        newsEntity.setTomTat(newsDTO.getTomTat());
         return newsEntity;
     }
 

@@ -33,4 +33,10 @@ public class NewsEntity {
     @Column(name = "linkTTS")
     private String LinkTTS;
 
+    @Column(name = "htmlPage", columnDefinition = "TEXT")
+    private String htmlPage;
+
+    @Column(name = "tomtat", columnDefinition = "TEXT")
+    private String tomTat;
+
 }

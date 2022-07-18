@@ -2,15 +2,96 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[[${news.title}]]</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 </head>
+
 <body>
 
-<h1 th:text="${news.title}"></h1>
-<audio controls>
-    <source th:src="${news.LinkTTS}" type="audio/mpeg">
-</audio>
-<h2 th:text="${news.shortdescription}"></h2>
-<p th:text="${news.content}"></p>
+
+
+<th:block th:include="/_header"></th:block>
+
+<main class="container">
+    <div class="row g-5">
+        <div class="col-md-8">
+
+
+            <article class="blog-post">
+                <div class="post-item col-md-12">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h3 class="mb-0">[[${news.title}]]</h3>
+                            <div class="audio-player md-0" id="song"></div>
+                            <div class="mb-0 text demo"> </div>
+                            <h3 class="mb-0 tom-tat text-info">Tóm Tắt Nội Dung</h3>
+                            <br class="tom-tat">
+                            <h5 class="mb-0 tom-tat">[[${news.tomTat}]]</h5>
+                            <button class="mb-0 tom-tat" onclick="visiableContent()">Đọc tiếp...</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <div class="list-group list-group-flush">
+
+                        <a href="#" class="list-group-item list-group-item-action ">Quân Nga có thể vượt sông chiến lược ở Đông Ukraine, binh sĩ Kiev báo động</a>
+                        <a href="#" class="list-group-item list-group-item-action">Vừa được cấp sổ, FLC đã "cắm" vào ngân hàng cho công ty liên quan vay vốn</a>
+                        <a href="#" class="list-group-item list-group-item-action">Thông tin mới nhất về biệt thự liên quan Trịnh Xuân Thanh được quan tâm</a>
+                        <a href="#" class="list-group-item list-group-item-action ">Quân Nga có thể vượt sông chiến lược ở Đông Ukraine, binh sĩ Kiev báo động</a>
+                        <a href="#" class="list-group-item list-group-item-action">Vừa được cấp sổ, FLC đã "cắm" vào ngân hàng cho công ty liên quan vay vốn</a>
+                        <a href="#" class="list-group-item list-group-item-action">Thông tin mới nhất về biệt thự liên quan Trịnh Xuân Thanh được quan tâm</a>
+                        <a href="#" class="list-group-item list-group-item-action ">Quân Nga có thể vượt sông chiến lược ở Đông Ukraine, binh sĩ Kiev báo động</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</main>
+
+
+
+
+<th:block th:include="_footer"></th:block>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script th:inline="javascript">
+    function visiableContent() {
+        var htmlPage = '[[${news.htmlPage}]]';
+        document.getElementsByClassName('demo')[0].innerHTML = htmlPage;
+        for (let el of document.querySelectorAll('.tom-tat')) el.style.visibility = 'hidden';
+        var link = [[${news.LinkTTS}]];
+        console.log(link);
+        var sound      = document.createElement('audio');
+        sound.id       = 'audio-player';
+        sound.controls = 'controls';
+        sound.src      = link;
+        sound.type     = 'audio/mpeg';
+        document.getElementById('song').appendChild(sound);
+
+    }
+</script>
+
 </body>
-</html>
+
