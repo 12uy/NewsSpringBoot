@@ -81,7 +81,11 @@
         var htmlPage = '[[${news.htmlPage}]]';
         document.getElementsByClassName('demo')[0].innerHTML = htmlPage;
         for (let el of document.querySelectorAll('.tom-tat')) el.style.visibility = 'hidden';
-        var link = [[${news.LinkTTS}]];
+        /*<![CDATA[*/
+        let srcMP3 = /*[[@{TTS/}]]*/ null;
+        /*]]>*/
+
+        var link = srcMP3+[[${news.id}]]+".mp3";
         console.log(link);
         var sound      = document.createElement('audio');
         sound.id       = 'audio-player';
@@ -89,7 +93,6 @@
         sound.src      = link;
         sound.type     = 'audio/mpeg';
         document.getElementById('song').appendChild(sound);
-
     }
 </script>
 

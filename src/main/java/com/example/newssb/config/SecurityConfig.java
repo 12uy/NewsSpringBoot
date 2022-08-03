@@ -75,9 +75,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/Content/**",
                 "/Style.css",
-                "webjars/**",
+                "/webjars/**",
                 "/jquery/**",
-                "/popper/**"
+                "/popper/**",
+                "/TTS/**"
         );
     }
 }
