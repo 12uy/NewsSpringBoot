@@ -1,0 +1,12 @@
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (1, 1);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (2, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (3, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (4, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (5, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (6, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (7, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (8, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (9, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (10, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (11, 2);
+INSERT INTO `user_role` (`userid`, `roleid`) VALUES (12, 2);
