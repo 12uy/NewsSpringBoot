@@ -23,7 +23,11 @@
                     <a th:href="@{|/news?id=${headNews.id}|}" class="text-black fw-normal"><p  class="lead mb-0" th:text="${headNews.shortdescription}"></p></a>
                 </div>
                 <div class="tit col-md-6">
-                    <a th:href="@{|/news?id=${headNews.id}|}"><img class="d-block w-100" src="https://icdn.dantri.com.vn/zoom/552_368/2022/05/13/anh-tim-mua-vu-khi-cu-tu-thoi-xo-viet-de-vien-tro-cho-ukraine-crop-1652398918632.jpeg" alt=""></a>
+                    <a th:href="@{|/news?id=${headNews.id}|}"><div class="article-thumb">
+                        <img alt="Mỹ ban bố tình trạng khẩn cấp do đậu mùa khỉ" height="344" loading="lazy"
+                             src="https://icdn.dantri.com.vn/zoom/516_344/2022/08/05/myepa-1659661172557.jpg"
+                             srcset="https://icdn.dantri.com.vn/zoom/516_344/2022/08/05/myepa-1659661172557.jpg 1x, https://icdn.dantri.com.vn/zoom/1032_688/2022/08/05/myepa-1659661172557.jpg 2x"
+                             width="516" /> </div></a>
                 </div>
 
 
@@ -62,6 +66,7 @@
 
                             </div>
                             <div class="col p-4 d-flex flex-column position-static">
+
                                 <a th:href="@{|/news?id=${news.id}|}" class="b text-black fw-normal text-decoration-none">
                                     <h3 class="mb-0" th:text="${news.title}"></h3>
                                     <div class="mb-1 text" ></div>
